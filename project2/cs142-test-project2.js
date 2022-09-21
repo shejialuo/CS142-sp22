@@ -6,15 +6,19 @@
  * summary of the results.
  */
 
+/*
+  * It is tedious to write anonymous function, I just use `let`.
+*/
+
 /* eslint-env browser, node */
 
 // Result message for Problems 1-3
-var p1Message = 'SUCCESS';
-var p2Message = 'SUCCESS';
-var p3Message = 'SUCCESS';
+let p1Message = 'SUCCESS';
+let p2Message = 'SUCCESS';
+let p3Message = 'SUCCESS';
 
 // Keep track of all the var statements
-var varDeclared = ['varDeclared', 'p1Message', 'p2Message', 'p3Message'];
+const varDeclared = ['varDeclared', 'p1Message', 'p2Message', 'p3Message'];
 
 // Utility functions
 function arraysAreTheSame(a1, a2) {
@@ -111,11 +115,11 @@ if (typeof Cs142TemplateProcessor !== 'function') {
   console.error('Cs142TemplateProcessor is not a function', typeof Cs142TemplateProcessor);
   p2Message = 'FAILURE';
 } else {
-  var template = 'My favorite month is {{month}} but not the day {{day}} or the year {{year}}';
-  var dateTemplate = new window.Cs142TemplateProcessor(template);
+  const template = 'My favorite month is {{month}} but not the day {{day}} or the year {{year}}';
+  const dateTemplate = new window.Cs142TemplateProcessor(template);
 
-  var dictionary = { month: 'July', day: '1', year: '2016' };
-  var str = dateTemplate.fillIn(dictionary);
+  const dictionary = { month: 'July', day: '1', year: '2016' };
+  const str = dateTemplate.fillIn(dictionary);
 
   if (str !== 'My favorite month is July but not the day 1 or the year 2016') {
     console.error('Cs142TemplateProcessor didn\'t work');
